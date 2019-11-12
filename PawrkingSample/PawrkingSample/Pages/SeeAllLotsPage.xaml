@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PawrkingSample.Pages.SeeAllLotsPage"
+             Title="Parking Lots Available"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" >
+            <Label/>
+            <Image 
+                    Source="PawParkingLog.png"
+                     />
+            <Label/>
+            <Button
+                    x:Name="LotC"
+                    Text="Lot C"
+                    Clicked="LotCButton_Clicked"
+                    BackgroundColor="White"
+                    IsVisible="True"
+                    />
+            <Label/>
+            <Button
+                    x:Name="PS1"
+                    Text="PS1"
+                    Clicked="PS1Button_Clicked"
+                    BackgroundColor="White"
+                    IsVisible="False"
+                    />
+            <Label/>
+            <Button
+                    x:Name="LotP"
+                    Text="Lot P"
+                    Clicked="LotPButton_Clicked"
+                    BackgroundColor="White"
+                    IsVisible="False"
+                    />
+            <Label/>
+            <Button
+                    x:Name="Cancel"
+                    Text="Cancel"
+                    Clicked="CancelButton_Clicked"
+                    BackgroundColor="White"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

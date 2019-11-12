@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PawrkingSample.Pages.HomePage"
+             Title="Home Page"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content >
+        <StackLayout Spacing="10">
+            <Label/>
+            <Image 
+                    Source="PawParkingLog.png"
+                     />
+            <Label/>
+            <Button
+                    x:Name="SeeAllLotsButton"
+                    Text="See All Lots"
+                    Clicked="SeeAllLotsButton_Clicked"
+                    BackgroundColor="White"
+                    />
+            <Label/>
+            <Button
+                    x:Name="SeeParkingReservationsButton"
+                    Text="See Parking Reservations"
+                    Clicked="SeeParkingReservationsButton_Clicked"
+                    BackgroundColor="White"
+                    />
+            <Label/>
+            <Button
+                    x:Name="LogOutButton"
+                    Text="Log Out"
+                    Clicked="LogOutButton_Clicked"
+                    BackgroundColor="White"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PawrkingSample.Register"
+             Title="Create Account"
+             NavigationPage.HasBackButton="False">
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="10" >
+            <Label/>
+            <Image Source="PawParkingLog.png"/>
+
+            <Entry
+                x:Name="CreateUsernameEntry"
+                Placeholder="Enter StudentID"
+                Keyboard="Numeric"
+                MaxLength="9"
+                BackgroundColor="White"
+                />
+ 
+            <Entry
+                x:Name="CreatePasswordEntry"
+                Placeholder="Enter Password"
+                BackgroundColor="White"
+                IsPassword="True"
+                />
+
+            <Button
+                Text="Register"
+                x:Name="RegisterButton"
+                BackgroundColor="White"
+                Clicked="RegisterButtonClicked"
+                />
+            <Button
+                Text="Cancel"
+                x:Name="CancelButton"
+                Clicked="CancelRegisterClicked"
+                BackgroundColor="White"
+                />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

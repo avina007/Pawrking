@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             mc:Ignorable="d"
+             x:Class="PawrkingSample.Pages.LotCPage"
+             NavigationPage.HasBackButton="False"
+             Title="Lot C"
+             MenuItem.Accelerator="LogOut"
+             >
+
+    <ContentPage.Content Spacing="10" >
+        <StackLayout>
+            <Label/>
+            <Image 
+                    Source="PawParkingLog.png"
+                     />
+            
+            <Label/>
+            <ProgressBar
+                    x:Name="LotCProgressBar"
+                    ProgressColor="Green"
+                    BackgroundColor="White"
+                    />
+            <progressBar:SfLinearProgressBar 
+                x:Name="LinearProgressBar" 
+                Progress="25"
+                ProgressColor="Green"
+                SecondaryProgress="100"
+                SecondaryProgressColor="Red"
+                TrackHeight="40"
+                Padding="10"
+                >
+                
+            </progressBar:SfLinearProgressBar>
+
+            <Label/>
+            <Button
+                    x:Name="ReserveButton"
+                    Text="Reserve"
+                    Clicked="ReserveButton_Clicked"
+                    BackgroundColor="White"
+                    />
+            <Label/>
+            <Button
+                    x:Name="CancelButton"
+                    Text="Cancel"
+                    Clicked="CancelButton_Clicked"
+                    BackgroundColor="White"
+                />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

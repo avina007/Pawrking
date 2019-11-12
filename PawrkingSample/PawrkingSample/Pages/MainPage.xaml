@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PawrkingSample.MainPage"
+             Title="Sign In"
+             NavigationPage.HasBackButton="False"
+             >
+
+    <StackLayout Spacing="10" >
+            <Label/>
+            <Image 
+                Source="PawParkingLog.png"
+                 />
+
+            <Entry 
+                 Placeholder="StudentID"
+                 x:Name="UserNameEntry"
+                 MaxLength="9"
+                 Keyboard="Numeric"
+                 />
+
+
+            <Entry 
+                 Placeholder="Password"
+                 x:Name="PasswordEntry"
+                 IsPassword="True"
+                 />
+
+
+
+        <Button
+                Text = "Sign in"
+                x:Name="SigninButton"
+                BackgroundColor="White"
+                Clicked="SignIn_Clicked"
+                 />
+
+        <Button 
+            Text="Create Account"
+            x:Name="CreateAccountButton"
+            BackgroundColor="White"
+            Clicked="CreateAccountClicked"
+            />  
+    </StackLayout>
+</ContentPage>
