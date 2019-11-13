@@ -9,8 +9,12 @@
         <StackLayout>
             <Label/>
             <Image 
-                    Source="PawParkingLog.png"
+                Source="PawParkingLog.png"
                      />
+            <Entry
+                x:Name="LotName"
+                Placeholder="Lot Name"
+                />
             <Label/>
         </StackLayout>
     </ContentPage.Content>
