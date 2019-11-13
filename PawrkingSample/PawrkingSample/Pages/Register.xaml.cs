@@ -42,7 +42,7 @@ namespace PawrkingSample
             {
                 conn.CreateTable<Student>();
                 Student temp = conn.FindWithQuery<Student>("select * from Student where Id=?", CreateUsernameEntry.Text);
-                if (temp.Id == student.Id)
+                if (temp != null)
                     DisplayAlert("Error", "User Already Exists Try Again!", "Ok");
                 else
                 {
