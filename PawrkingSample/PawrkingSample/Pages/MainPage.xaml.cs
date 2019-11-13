@@ -61,7 +61,7 @@ namespace PawrkingSample
             else if(user.password == PasswordEntry.Text)
             {
                 DisplayAlert("Welcome", user.Id , "ok");
-                await Navigation.PushAsync(new HomePage());
+                await Navigation.PushAsync(new HomePage(user.Id));
             }
             
         }

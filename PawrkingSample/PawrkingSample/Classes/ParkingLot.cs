@@ -10,7 +10,9 @@ namespace PawrkingSample.Classes
         [PrimaryKey, Unique]
         string name { set; get; }
         int totalSpaces { set; get; }
-        string availableSpaces { set; get; }
+        int numOfRows { set; get; }
+        int numOfCols { set; get; }
+        int [][] availableSpaces { set; get; }
         
     }
 

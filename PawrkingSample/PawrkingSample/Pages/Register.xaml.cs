@@ -36,15 +36,23 @@ namespace PawrkingSample
 
             student.Id = CreateUsernameEntry.Text;
             student.password = CreatePasswordEntry.Text;
+            student.isAdmin = false;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
-                conn.Insert(student);
-            }
-            //if username is unique then we insert new user to table and navigate
-            await Navigation.PushAsync(new HomePage());
-            //else we have an alert pop up to try again
+                Student temp = conn.FindWithQuery<Student>("select * from Student where Id=?", CreateUsernameEntry.Text);
+                if (temp.Id == student.Id)
+                    DisplayAlert("Error", "User Already Exists Try Again!", "Ok");
+                else
+                {
+                    conn.Insert(student);
+                    //if username is unique then we insert new user to table and navigate
+                    //else we have an alert pop up to try again
+                    await Navigation.PushAsync(new HomePage(student.Id));
+                }
+                }
+            
 
         }
     }

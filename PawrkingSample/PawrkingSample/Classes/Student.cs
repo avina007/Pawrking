@@ -10,5 +10,6 @@ namespace PawrkingSample.Classes
         [PrimaryKey, MaxLength(9), Unique]
         public string Id { get; set; }
         public string password { get; set; }
+        public Boolean isAdmin { get; set; }
     }
 }
