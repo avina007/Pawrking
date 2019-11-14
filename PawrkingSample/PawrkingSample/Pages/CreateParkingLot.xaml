@@ -12,8 +12,33 @@
                 Source="PawParkingLog.png"
                      />
             <Entry
-                x:Name="LotName"
+                x:Name="LotNameEntry"
                 Placeholder="Lot Name"
+                BackgroundColor="White"
+                />
+            <Entry
+                x:Name="RowEntry"
+                Placeholder="Row Letter"
+                BackgroundColor="White"
+                />
+            <Entry
+                x:Name="ColEntry"
+                Placeholder="Column Number"
+                BackgroundColor="White"
+                Keyboard="Numeric"
+                />
+
+            <Button
+                Text="Add Lot"
+                x:Name="AddLotButton"
+                BackgroundColor="White"
+                Clicked="AddLotButtonClicked"
+                />
+            <Button
+                Text="Cancel"
+                x:Name="CancelButton"
+                Clicked="CancelLotEntryClicked"
+                BackgroundColor="White"
                 />
             <Label/>
         </StackLayout>

@@ -7,12 +7,12 @@ namespace PawrkingSample.Classes
 {
     class ParkingLot
     {
-        [PrimaryKey, Unique]
-        string name { set; get; }
-        int totalSpaces { set; get; }
-        int numOfRows { set; get; }
-        int numOfCols { set; get; }
-        int [][] availableSpaces { set; get; }
+        [PrimaryKey, Unique, AutoIncrement]
+        public int lotId { get; set; }
+        public string name { get; set; }
+        public string row { get; set; }
+        public int col { get; set; }
+        public Boolean open { get; set; }
         
     }
 

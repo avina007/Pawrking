@@ -45,7 +45,7 @@ namespace PawrkingSample.Pages
         
         private async void CreateLot_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SeeAllLotsPage(user.Id));
+            await Navigation.PushAsync(new CreateParkingLot(user.Id));
         }
         private async void SeeAllLotsButton_Clicked(object sender, EventArgs e)
         {
