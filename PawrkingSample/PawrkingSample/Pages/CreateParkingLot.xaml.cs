@@ -49,7 +49,7 @@ namespace PawrkingSample.Pages
 
         private async void CancelLotEntryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new HomePage(user.Id));
         }
 
         private async void AddLotButtonClicked(object sender, EventArgs e)
