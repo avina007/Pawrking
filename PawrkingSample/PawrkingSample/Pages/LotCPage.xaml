@@ -15,27 +15,44 @@
         <StackLayout>
             <Label/>
             <Image 
-                    Source="PawParkingLog.png"
-                     />
+                Source="PawParkingLog.png"
+                />
             
             <Label/>
             <ProgressBar
-                    x:Name="LotCProgressBar"
-                    ProgressColor="Green"
-                    BackgroundColor="White"
-                    />
+                x:Name="LotCProgressBar"
+                ProgressColor="Green"
+                BackgroundColor="White"
+                IsVisible="False"
+                />
             <progressBar:SfLinearProgressBar 
                 x:Name="LinearProgressBar" 
-                Progress="25"
                 ProgressColor="Green"
-                SecondaryProgress="100"
+                Progress="25"
                 SecondaryProgressColor="Red"
+                SecondaryProgress="100"
                 TrackHeight="40"
                 Padding="10"
                 >
-                
             </progressBar:SfLinearProgressBar>
-
+            <Label 
+                Text="Available spots in Lot C"
+                HorizontalOptions="CenterAndExpand"
+                FontSize="Large"
+                />
+            <ListView x:Name="LotListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <TextCell 
+                            Text="{Binding row,StringFormat='Row:{0}'}"
+                            Detail="{Binding col, StringFormat='Space:{0}'}"
+                            TextColor="Black"
+                            
+                            />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <Label/>
             <Button
                     x:Name="ReserveButton"

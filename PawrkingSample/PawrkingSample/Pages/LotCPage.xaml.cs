@@ -15,6 +15,7 @@ namespace PawrkingSample.Pages
     public partial class LotCPage : ContentPage
     {
         Student user;
+        ParkingLot lot;
         public LotCPage()
         {
             InitializeComponent();
@@ -33,7 +34,14 @@ namespace PawrkingSample.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            LotCProgressBar.Progress = .75;
+            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            {
+                conn.CreateTable<ParkingLot>();
+                var openSpots = conn.Table<ParkingLot>().ToList();
+                //var openSpots=conn.FindWithQuery<ParkingLot>("select name, row, col from ParkingLot where open=? and name =?", true, "Lot C");
+
+                LotListView.ItemsSource = openSpots;
+            }
         }
 
         public async void ReserveButton_Clicked(object sender, EventArgs e)
