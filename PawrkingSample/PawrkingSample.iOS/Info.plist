@@ -30,9 +30,13 @@
 	<string>1.0</string>
 	<key>CFBundleName</key>
 	<string>PawrkingSample</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>Custom Property</key>
+	<string></string>
+	<key>CFBundleIconFile</key>
+	<string>New Entry</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>
