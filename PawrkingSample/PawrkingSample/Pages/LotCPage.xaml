@@ -21,9 +21,9 @@
             <Label/>
             <ProgressBar
                 x:Name="LotCProgressBar"
-                ProgressColor="Green"
+                ProgressColor="Red"
                 BackgroundColor="White"
-                IsVisible="False"
+                IsVisible="True"
                 />
             <progressBar:SfLinearProgressBar 
                 x:Name="LinearProgressBar" 

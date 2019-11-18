@@ -34,14 +34,23 @@ namespace PawrkingSample.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<ParkingLot>();
                 var openSpots = conn.Table<ParkingLot>().ToList();
-                //var openSpots=conn.FindWithQuery<ParkingLot>("select name, row, col from ParkingLot where open=? and name =?", true, "Lot C");
-
-                LotListView.ItemsSource = openSpots;
+                List<ParkingLot> add = new List<ParkingLot>();
+                foreach (ParkingLot item in openSpots)
+                {            
+                    if (item.open && item.name == "Lot C")
+                    {
+                        add.Add(item);
+                    }
+                }               
+                LotListView.ItemsSource = add;             
+                LotCProgressBar.Progress = Convert.ToDouble(add.Count)/Convert.ToDouble(openSpots.Count);
             }
+            
         }
 
         public async void ReserveButton_Clicked(object sender, EventArgs e)
