@@ -14,25 +14,32 @@
             <Image Source="PawParkingLog.png"/>
 
             <Entry
-                x:Name="CreateUsernameEntry"
-                Placeholder="Enter StudentID"
-                Keyboard="Numeric"
-                MaxLength="9"
+                x:Name="CreateEmailEntry"
+                Placeholder="Enter Email"
+                Keyboard="Email"
+                Text="{Binding Email}"
+                
                 BackgroundColor="White"
                 />
  
             <Entry
                 x:Name="CreatePasswordEntry"
                 Placeholder="Enter Password"
+                Text="{Binding Password}"
                 BackgroundColor="White"
                 IsPassword="True"
                 />
+            <Entry x:Name="cfmpasswordentery"
+                   Placeholder="Re-Enter Password"
+                   Text="{Binding ConfirmPassword}" 
+                   IsPassword="True" />
 
             <Button
                 Text="Register"
                 x:Name="RegisterButton"
                 BackgroundColor="White"
-                Clicked="RegisterButtonClicked"
+                Command="{Binding SignUpCommand}"
+                
                 />
             <Button
                 Text="Cancel"

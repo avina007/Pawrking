@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using PawrkingSample.ClassPages;
 using Xamarin.Forms.Xaml;
 
 namespace PawrkingSample
@@ -14,11 +15,14 @@ namespace PawrkingSample
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
+        RegisterVM registerVM;
         public Register()
         {
             InitializeComponent();
-            CreateUsernameEntry.Completed += CreatePasswordEntry_Completed;
-            CreatePasswordEntry.Completed += RegisterButtonClicked;
+            registerVM = new RegisterVM();
+            CreateEmailEntry.Completed += CreatePasswordEntry_Completed;
+            BindingContext = registerVM;
+            //CreatePasswordEntry.Completed += RegisterButtonClicked;
         }
 
         public void CreatePasswordEntry_Completed(object sender, EventArgs e)
@@ -30,6 +34,7 @@ namespace PawrkingSample
         {
             await Navigation.PushAsync(new MainPage());
         }
+        /*
 
         private async void RegisterButtonClicked(object sender, EventArgs e)
         {
@@ -55,6 +60,6 @@ namespace PawrkingSample
                 }
             
 
-        }
+        }*/
     }
 }

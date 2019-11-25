@@ -20,16 +20,16 @@ namespace PawrkingSample.Pages
         {
             InitializeComponent();
         }
-        public HomePage(string id)
+        public HomePage(string email)
         {
             InitializeComponent();
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
+                user = conn.FindWithQuery<Student>("select * from Student where Id=?", email);
             }
         }
-
+        /*
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -41,8 +41,8 @@ namespace PawrkingSample.Pages
             {
                 SpacingLabel.IsVisible = true;
             }
-        }
-        
+        }*/
+        /*
         private async void CreateLot_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CreateParkingLot(user.Email));
@@ -55,8 +55,8 @@ namespace PawrkingSample.Pages
         private async void SeeParkingReservationsButton_Clicked(object sender, EventArgs e)
         {//change when i make parking reservations history page
             await Navigation.PushAsync(new ParkingReservationHistory(user.Email));
-        }
-
+        }*/
+        
         private async void LogOutButton_Clicked(object sender, EventArgs e)
         {
 

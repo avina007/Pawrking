@@ -17,21 +17,21 @@
             <Button
                     x:Name="SeeAllLotsButton"
                     Text="See All Lots"
-                    Clicked="SeeAllLotsButton_Clicked"
+                    
                     BackgroundColor="White"
                     />
             <Label/>
             <Button
                     x:Name="SeeParkingReservationsButton"
                     Text="See Parking Reservations"
-                    Clicked="SeeParkingReservationsButton_Clicked"
+                    
                     BackgroundColor="White"
                     />
             <Label/>
             <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"
-                    Clicked="CreateLot_Clicked"
+                    
                     BackgroundColor="White"/>
             <Label
                     x:Name="SpacingLabel"
