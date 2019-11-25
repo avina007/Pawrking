@@ -25,16 +25,7 @@
                 BackgroundColor="White"
                 IsVisible="True"
                 />
-            <progressBar:SfLinearProgressBar 
-                x:Name="LinearProgressBar" 
-                ProgressColor="Green"
-                Progress="25"
-                SecondaryProgressColor="Red"
-                SecondaryProgress="100"
-                TrackHeight="40"
-                Padding="10"
-                >
-            </progressBar:SfLinearProgressBar>
+
             <Label 
                 Text="Available spots in Lot C"
                 HorizontalOptions="CenterAndExpand"
