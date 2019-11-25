@@ -31,7 +31,7 @@ namespace PawrkingSample.Pages
 
         public async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage(user.Id));
+            await Navigation.PushAsync(new HomePage(user.Email));
         }
     }
 }

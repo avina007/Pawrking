@@ -1,4 +1,5 @@
 ﻿using PawrkingSample.Classes;
+using PawrkingSample.ClassPages;
 using PawrkingSample.Pages;
 using SQLite;
 using System;
@@ -16,37 +17,41 @@ namespace PawrkingSample
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        LoginViewModel loginViewModel;
         public MainPage()
         {
+            loginViewModel = new LoginViewModel();
             InitializeComponent();
-            UserNameEntry.Completed += PasswordEntry_Complete;
-            PasswordEntry.Completed += SignIn_Clicked;
+            BindingContext = loginViewModel;
+
+            EmailEntry.Completed += PasswordEntry_Complete;
+            //PasswordEntry.Completed += SignIn_Clicked;
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            UserNameEntry.Focus();
+            EmailEntry.Focus();
         }
 
         public void PasswordEntry_Complete(object sender, EventArgs e)
         {
             PasswordEntry.Focus();
         }
-
+        /*
         private async void CreateAccountClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Register());
-        }
-
+        }*/
+        /*
         private async void SignIn_Clicked(object sender, EventArgs e)
         {
             Student user;
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", UserNameEntry.Text);
+                user = conn.FindWithQuery<Student>("select * from Student where Id=?", EmailEntry.Text);
             }
-            if (String.IsNullOrWhiteSpace(UserNameEntry.Text) || String.IsNullOrWhiteSpace(PasswordEntry.Text))
+            if (String.IsNullOrWhiteSpace(EmailEntry.Text) || String.IsNullOrWhiteSpace(PasswordEntry.Text))
             {
                 DisplayAlert("Error", "Incorrect Username or Password", "Retry");
             }
@@ -54,16 +59,16 @@ namespace PawrkingSample
             {
                 DisplayAlert("Error", "Username not Found please try again or create an account!", "Retry");
             }
-            else if (user.password != PasswordEntry.Text)
+            else if (user.Password != PasswordEntry.Text)
             {
                 DisplayAlert("Error", "Incorrect Password", "Retry");
             }
-            else if(user.password == PasswordEntry.Text)
+            else if(user.Password == PasswordEntry.Text)
             {
-                DisplayAlert("Welcome", user.Id , "ok");
-                await Navigation.PushAsync(new HomePage(user.Id));
+                DisplayAlert("Welcome", user.Email , "ok");
+                await Navigation.PushAsync(new HomePage(user.Email));
             }
             
-        }
+        }*/
     }
 }

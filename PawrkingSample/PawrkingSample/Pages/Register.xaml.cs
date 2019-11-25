@@ -35,8 +35,8 @@ namespace PawrkingSample
         {
             Student student = new Student();
 
-            student.Id = CreateUsernameEntry.Text;
-            student.password = CreatePasswordEntry.Text;
+            student.Email = CreateUsernameEntry.Text;
+            student.Password = CreatePasswordEntry.Text;
             student.isAdmin = false;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
@@ -50,7 +50,7 @@ namespace PawrkingSample
                     conn.Insert(student);
                     //if username is unique then we insert new user to table and navigate
                     //else we have an alert pop up to try again
-                    await Navigation.PushAsync(new HomePage(student.Id));
+                    await Navigation.PushAsync(new HomePage(student.Email));
                 }
                 }
             

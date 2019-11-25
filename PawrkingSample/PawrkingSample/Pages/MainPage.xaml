@@ -16,33 +16,37 @@
                  />
 
             <Entry 
-                 Placeholder="StudentID"
-                 x:Name="UserNameEntry"
-                 MaxLength="9"
-                 Keyboard="Numeric"
+                 Placeholder="E-mail"
+                 x:Name="EmailEntry"
+                Text="{Binding Email}"
+                 
+                 Keyboard="Email"
                  />
 
 
             <Entry 
                  Placeholder="Password"
                  x:Name="PasswordEntry"
+                Text="{Binding Password}"
                  IsPassword="True"
                  />
 
 
 
         <Button
-                Text = "Sign in"
+                Text = "S"
                 x:Name="SigninButton"
                 BackgroundColor="White"
-                Clicked="SignIn_Clicked"
+                Command="{Binding LoginCommand}"
+                
                  />
 
         <Button 
             Text="Create Account"
             x:Name="CreateAccountButton"
             BackgroundColor="White"
-            Clicked="CreateAccountClicked"
+            Command="{Binding SignUp}"
+            
             />  
     </StackLayout>
 </ContentPage>

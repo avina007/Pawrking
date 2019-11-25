@@ -42,7 +42,7 @@ namespace PawrkingSample.Pages
                 List<ParkingLot> add = new List<ParkingLot>();
                 foreach (ParkingLot item in openSpots)
                 {            
-                    if (item.open && item.name == "Lot C")
+                    if (item.Open && item.Name == "Lot C")
                     {
                         add.Add(item);
                     }
@@ -60,7 +60,7 @@ namespace PawrkingSample.Pages
 
         public async void CancelButton_Clicked(object sender, EventArgs e)
         {
-             await Navigation.PushAsync(new SeeAllLotsPage(user.Id));
+             await Navigation.PushAsync(new SeeAllLotsPage(user.Email));
         }
 
     }

@@ -31,7 +31,7 @@ namespace PawrkingSample.Pages
         private async void LotCButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new LotCPage(user.Id));
+            await Navigation.PushAsync(new LotCPage(user.Email));
         }
         private async void PS1Button_Clicked(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace PawrkingSample.Pages
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new HomePage(user.Id));
+            await Navigation.PushAsync(new HomePage(user.Email));
         }
     }
 }

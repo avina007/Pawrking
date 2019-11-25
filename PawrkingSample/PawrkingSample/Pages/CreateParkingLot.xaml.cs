@@ -49,17 +49,17 @@ namespace PawrkingSample.Pages
 
         private async void CancelLotEntryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage(user.Id));
+            await Navigation.PushAsync(new HomePage(user.Email));
         }
 
         private async void AddLotButtonClicked(object sender, EventArgs e)
         {
             ParkingLot parkinglot = new ParkingLot();
 
-            parkinglot.name = LotNameEntry.Text;
-            parkinglot.row = RowEntry.Text;
-            parkinglot.col = int.Parse(ColEntry.Text);
-            parkinglot.open = true;
+            parkinglot.Name = LotNameEntry.Text;
+            parkinglot.Row = RowEntry.Text;
+            parkinglot.Col = int.Parse(ColEntry.Text);
+            parkinglot.Open = true;
 
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
@@ -67,7 +67,7 @@ namespace PawrkingSample.Pages
 
                 conn.Insert(parkinglot);
 
-                DisplayAlert("Added New Lot", parkinglot.lotId.ToString(), "OK");
+                DisplayAlert("Added New Lot", parkinglot.Name.ToString(), "OK");
 
                 //await Navigation.PushAsync(new ParkingReservationHistory());
 

@@ -10,6 +10,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="17.3.0.26" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,5 +32,8 @@
     <EmbeddedResource Update="Pages\SeeAllLotsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClassPages\" />
   </ItemGroup>
 </Project>
