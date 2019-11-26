@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PawrkingSample.ClassPages;
 
 
 namespace PawrkingSample.Pages
@@ -15,26 +16,23 @@ namespace PawrkingSample.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateParkingLot : ContentPage
     {
-        Student user;
-
+        //Student user;
+        CreateParkingLotVM createParkingLotVM;
+        
         public CreateParkingLot()
         {
             InitializeComponent();
+            createParkingLotVM = new CreateParkingLotVM();
             LotNameEntry.Completed += LotNameEntry_Completed;
             RowEntry.Completed += RowEntry_Completed;
+            BindingContext = createParkingLotVM;
+
             //ColEntry.Completed += AddLotButtonClicked;
-        }
-        public CreateParkingLot(string id)
-        {
-            InitializeComponent();
-            LotNameEntry.Completed += LotNameEntry_Completed;
-            RowEntry.Completed += RowEntry_Completed;
-            //ColEntry.Completed += AddLotButtonClicked;
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            /*using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
                 user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
-            }
+            }*/
         }
 
         public void LotNameEntry_Completed(object sender, EventArgs e)
@@ -49,7 +47,7 @@ namespace PawrkingSample.Pages
 
         private async void CancelLotEntryClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage(user.Email));
+            //await Navigation.PushAsync(new HomePage(user.Email));
         }
 
         /*
