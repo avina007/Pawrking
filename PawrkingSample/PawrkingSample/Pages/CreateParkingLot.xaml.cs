@@ -22,14 +22,14 @@ namespace PawrkingSample.Pages
             InitializeComponent();
             LotNameEntry.Completed += LotNameEntry_Completed;
             RowEntry.Completed += RowEntry_Completed;
-            ColEntry.Completed += AddLotButtonClicked;
+            //ColEntry.Completed += AddLotButtonClicked;
         }
         public CreateParkingLot(string id)
         {
             InitializeComponent();
             LotNameEntry.Completed += LotNameEntry_Completed;
             RowEntry.Completed += RowEntry_Completed;
-            ColEntry.Completed += AddLotButtonClicked;
+            //ColEntry.Completed += AddLotButtonClicked;
             using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
                 conn.CreateTable<Student>();
@@ -52,6 +52,7 @@ namespace PawrkingSample.Pages
             await Navigation.PushAsync(new HomePage(user.Email));
         }
 
+        /*
         private async void AddLotButtonClicked(object sender, EventArgs e)
         {
             ParkingLot parkinglot = new ParkingLot();
@@ -75,6 +76,6 @@ namespace PawrkingSample.Pages
             }
 
 
-        }
+        }*/
     }
 }

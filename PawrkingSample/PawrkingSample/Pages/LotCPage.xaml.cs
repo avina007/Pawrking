@@ -42,7 +42,7 @@ namespace PawrkingSample.Pages
                 List<ParkingLot> add = new List<ParkingLot>();
                 foreach (ParkingLot item in openSpots)
                 {            
-                    if (item.Open && item.Name == "Lot C")
+                    if (item.Open && item.LotName == "Lot C")
                     {
                         add.Add(item);
                     }

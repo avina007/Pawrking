@@ -15,16 +15,19 @@
                 x:Name="LotNameEntry"
                 Placeholder="Lot Name"
                 BackgroundColor="White"
+                Text="{Binding LotName}"
                 />
             <Entry
                 x:Name="RowEntry"
                 Placeholder="Row Letter"
+                Text="{Binding Row}"
                 BackgroundColor="White"
                 />
             <Entry
                 x:Name="ColEntry"
                 Placeholder="Column Number"
                 BackgroundColor="White"
+                Text="{Binding Col}"
                 Keyboard="Numeric"
                 />
 
@@ -32,7 +35,7 @@
                 Text="Add Lot"
                 x:Name="AddLotButton"
                 BackgroundColor="White"
-                Clicked="AddLotButtonClicked"
+                Command="{Binding AddLotCommand}"
                 />
             <Button
                 Text="Cancel"
