@@ -92,6 +92,26 @@ namespace PawrkingSample.ClassPages
             }
         }
 
+        public static async Task<bool> UpdateLotFree(string lotname, string row, int col)
+        {
+            try
+            {
+                var toUpdateLot = (await firebase
+                .Child("Lots")
+                .OnceAsync<ParkingLot>()).Where(a => a.Object.LotName == lotname && a.Object.Row == row && a.Object.Col == col).FirstOrDefault();
+                await firebase
+                .Child("Users")
+                .Child(toUpdateLot.Key)
+                .PutAsync(new ParkingLot() { LotName = lotname, Row = row, Col = col, Open = true });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
         public static async Task<bool> DeleteLot(string lotname, string row, int col)
         {
             try

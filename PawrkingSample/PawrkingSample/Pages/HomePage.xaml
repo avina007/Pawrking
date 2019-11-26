@@ -17,21 +17,21 @@
             <Button
                     x:Name="SeeAllLotsButton"
                     Text="See All Lots"
-                    
+                    Command="{Binding SeeAllLotsClicked}"
                     BackgroundColor="White"
                     />
             <Label/>
             <Button
                     x:Name="SeeParkingReservationsButton"
                     Text="See Parking Reservations"
-                    
+                    Command="{Binding SeeParkingReservationsClicked}"
                     BackgroundColor="White"
                     />
             <Label/>
             <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"
-                    
+                    Command="{Binding CreateParkingLotClicked}"
                     BackgroundColor="White"/>
             <Label
                     x:Name="SpacingLabel"
@@ -39,7 +39,7 @@
             <Button
                     x:Name="LogOutButton"
                     Text="Log Out"
-                    Clicked="LogOutButton_Clicked"
+                    Command="{Binding LogoutCommand}"
                     BackgroundColor="White"
                 />
         </StackLayout>
