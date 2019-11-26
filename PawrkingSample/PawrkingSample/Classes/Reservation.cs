@@ -4,10 +4,10 @@ using System.Text;
 
 namespace PawrkingSample.Classes
 {
-    class Reservation
+    public class Reservation
     {
-        ParkingLot space { set; get; }
-        string StudentID { set; get; }
-        int timer { set; get; }
+        public ParkingLot Lot { set; get; }
+        public string Email { set; get; }
+        public int Timer { set; get; }
     }
 }
