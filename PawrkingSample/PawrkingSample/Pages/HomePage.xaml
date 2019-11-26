@@ -31,7 +31,7 @@
             <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"
-                    Clicked="CreateLot_Clicked"
+                    
                     BackgroundColor="White"/>
             <Label
                     x:Name="SpacingLabel"

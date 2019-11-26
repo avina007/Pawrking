@@ -42,11 +42,11 @@ namespace PawrkingSample.Pages
                 SpacingLabel.IsVisible = true;
             }
         }*/
-        
+        /*
         private async void CreateLot_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CreateParkingLot());
-        }/*
+            await Navigation.PushAsync(new CreateParkingLot(user.Email));
+        }
         private async void SeeAllLotsButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SeeAllLotsPage(user.Email));
