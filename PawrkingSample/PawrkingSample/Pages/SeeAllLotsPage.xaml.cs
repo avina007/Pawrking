@@ -1,4 +1,5 @@
 ﻿using PawrkingSample.Classes;
+using PawrkingSample.ClassPages;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -15,34 +16,16 @@ namespace PawrkingSample.Pages
     public partial class SeeAllLotsPage : ContentPage
     {
         string email;
-        public SeeAllLotsPage()
-        {
-            InitializeComponent();
-        }
+        SeeAllLotsVM seeAllLotsVM;
+
         public SeeAllLotsPage(string e)
         {
             InitializeComponent();
             email = e;
+            seeAllLotsVM = new SeeAllLotsVM(email);
+            BindingContext = seeAllLotsVM;
         }
-        private async void LotCButton_Clicked(object sender, EventArgs e)
-        {
-
-            await Navigation.PushAsync(new LotCPage(email));
-        }
-        private async void PS1Button_Clicked(object sender, EventArgs e)
-        {
-
-            //await Navigation.PushAsync(new MainPage(user.Id));
-        }
-        private async void LotPButton_Clicked(object sender, EventArgs e)
-        {
-
-            //await Navigation.PushAsync(new MainPage(user.Id));
-        }
-        private async void CancelButton_Clicked(object sender, EventArgs e)
-        {
-
-            await Navigation.PushAsync(new HomePage(email));
-        }
+        
+     
     }
 }

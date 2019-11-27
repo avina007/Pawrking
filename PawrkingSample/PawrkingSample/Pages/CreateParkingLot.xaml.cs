@@ -16,24 +16,16 @@ namespace PawrkingSample.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateParkingLot : ContentPage
     {
-        //Student user;
         CreateParkingLotVM createParkingLotVM;
-        //string email;
+
         public CreateParkingLot()
         {
-           //email = e;
             InitializeComponent();
             createParkingLotVM = new CreateParkingLotVM();
             LotNameEntry.Completed += LotNameEntry_Completed;
             RowEntry.Completed += RowEntry_Completed;
             BindingContext = createParkingLotVM;
 
-            //ColEntry.Completed += AddLotButtonClicked;
-            /*using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
-            }*/
         }
 
         public void LotNameEntry_Completed(object sender, EventArgs e)
@@ -45,36 +37,5 @@ namespace PawrkingSample.Pages
         {
             ColEntry.Focus();
         }
-
-        private async void CancelLotEntryClicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new HomePage(user.Email));
-        }
-
-        /*
-        private async void AddLotButtonClicked(object sender, EventArgs e)
-        {
-            ParkingLot parkinglot = new ParkingLot();
-
-            parkinglot.Name = LotNameEntry.Text;
-            parkinglot.Row = RowEntry.Text;
-            parkinglot.Col = int.Parse(ColEntry.Text);
-            parkinglot.Open = true;
-
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<ParkingLot>();
-
-                conn.Insert(parkinglot);
-
-                DisplayAlert("Added New Lot", parkinglot.Name.ToString(), "OK");
-
-                //await Navigation.PushAsync(new ParkingReservationHistory());
-
-
-            }
-
-
-        }*/
     }
 }

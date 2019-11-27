@@ -15,14 +15,10 @@ namespace PawrkingSample.Pages
     public partial class LotCPage : ContentPage
     {
         string email;
-        ParkingLot lot;
-        public LotCPage()
-        {
-            InitializeComponent();
-             
-        }
+        
         public LotCPage(string e)
         {
+            //InitializeComponent();
             email = e;
         }
 
@@ -30,21 +26,7 @@ namespace PawrkingSample.Pages
         {
             base.OnAppearing();
             
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<ParkingLot>();
-                var openSpots = conn.Table<ParkingLot>().ToList();
-                List<ParkingLot> add = new List<ParkingLot>();
-                foreach (ParkingLot item in openSpots)
-                {            
-                    if (item.Open && item.LotName == "Lot C")
-                    {
-                        add.Add(item);
-                    }
-                }               
-                LotListView.ItemsSource = add;             
-                LotCProgressBar.Progress = Convert.ToDouble(add.Count)/Convert.ToDouble(openSpots.Count);
-            }
+            
             
         }
 
@@ -53,10 +35,7 @@ namespace PawrkingSample.Pages
            // await Navigation.PushAsync(new MainPage());
         }
 
-        public async void CancelButton_Clicked(object sender, EventArgs e)
-        {
-             await Navigation.PushAsync(new SeeAllLotsPage(email));
-        }
+        
 
     }
 }

@@ -17,7 +17,7 @@
             <Button
                     x:Name="LotC"
                     Text="Lot C"
-                    Clicked="LotCButton_Clicked"
+                    Command="{Binding LotCButonClicked}"
                     BackgroundColor="White"
                     IsVisible="True"
                     />
@@ -25,7 +25,7 @@
             <Button
                     x:Name="PS1"
                     Text="PS1"
-                    Clicked="PS1Button_Clicked"
+                    Command="{Binding PS1ButtonClicked}"
                     BackgroundColor="White"
                     IsVisible="False"
                     />
@@ -33,7 +33,7 @@
             <Button
                     x:Name="LotP"
                     Text="Lot P"
-                    Clicked="LotPButton_Clicked"
+                    Command="{Binding LotPButtonClicked}"
                     BackgroundColor="White"
                     IsVisible="False"
                     />
@@ -41,7 +41,7 @@
             <Button
                     x:Name="Cancel"
                     Text="Cancel"
-                    Clicked="CancelButton_Clicked"
+                    Command="{Binding CancelButtonClicked}"
                     BackgroundColor="White"
                     />
         </StackLayout>

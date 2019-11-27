@@ -8,7 +8,7 @@
              x:Class="PawrkingSample.Pages.LotCPage"
              NavigationPage.HasBackButton="False"
              Title="Lot C"
-             MenuItem.Accelerator="LogOut"
+
              >
 
     <ContentPage.Content Spacing="10" >
@@ -19,31 +19,14 @@
                 />
             
             <Label/>
-            <ProgressBar
-                x:Name="LotCProgressBar"
-                ProgressColor="Red"
-                BackgroundColor="White"
-                IsVisible="True"
-                />
+            
 
             <Label 
                 Text="Available spots in Lot C"
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large"
                 />
-            <ListView x:Name="LotListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        
-                        <TextCell 
-                            Text="{Binding row,StringFormat='Row:{0}'}"
-                            Detail="{Binding col, StringFormat='Space:{0}'}"
-                            TextColor="Black"
-                            
-                            />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            
             <Label/>
             <Button
                     x:Name="ReserveButton"
@@ -55,7 +38,7 @@
             <Button
                     x:Name="CancelButton"
                     Text="Cancel"
-                    Clicked="CancelButton_Clicked"
+                    
                     BackgroundColor="White"
                 />
         </StackLayout>

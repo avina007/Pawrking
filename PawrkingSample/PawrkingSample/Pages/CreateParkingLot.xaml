@@ -40,7 +40,7 @@
             <Button
                 Text="Cancel"
                 x:Name="CancelButton"
-                Clicked="CancelLotEntryClicked"
+                
                 BackgroundColor="White"
                 />
             <Label/>
