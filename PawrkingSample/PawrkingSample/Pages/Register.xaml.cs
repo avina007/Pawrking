@@ -22,10 +22,14 @@ namespace PawrkingSample
             registerVM = new RegisterVM();
             CreateEmailEntry.Completed += CreatePasswordEntry_Completed;
             BindingContext = registerVM;
-            //CreatePasswordEntry.Completed += RegisterButtonClicked;
+            CreatePasswordEntry.Completed += cfmpasswordentery_complete;
         }
 
         public void CreatePasswordEntry_Completed(object sender, EventArgs e)
+        {
+            CreatePasswordEntry.Focus();
+        }
+        public void cfmpasswordentery_complete(object sender, EventArgs e)
         {
             CreatePasswordEntry.Focus();
         }

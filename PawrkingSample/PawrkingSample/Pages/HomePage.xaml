@@ -31,11 +31,7 @@
             <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"
-<<<<<<< HEAD
-                    Clicked="CreateLot_Clicked"
-=======
                     Command="{Binding CreateParkingLotClicked}"
->>>>>>> 09f0de991933fb4658937fad6cde7614e4ad7541
                     BackgroundColor="White"/>
             <Label
                     x:Name="SpacingLabel"

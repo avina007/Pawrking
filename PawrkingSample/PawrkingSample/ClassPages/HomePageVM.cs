@@ -1,14 +1,20 @@
-﻿using PawrkingSample.Pages;
+﻿using PawrkingSample.Classes;
+using PawrkingSample.Pages;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace PawrkingSample.ClassPages
 {
-    class HomePageVM
+    class HomePageVM : INotifyPropertyChanged
     {
         string email;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public HomePageVM(string email2)
         {
             email = email2;
@@ -31,10 +37,11 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    //App.Current.MainPage.Navigation.PushAsync(new ReservationHistory(email));
+                    //App.Current.MainPage.Navigation.PushAsync(new ReservationHistory(email)); 
                 });
             }
         }
+
 
         public Command CreateParkingLotClicked
         {
@@ -42,7 +49,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot(email));
+                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot());
                 });
             }
         }
@@ -56,5 +63,21 @@ namespace PawrkingSample.ClassPages
                 });
             }
         }
+
+        /*public async Task<bool> adminAccessAsync()
+        {
+            FirebaseHelper fh = new FirebaseHelper();
+            var u = FirebaseHelper.GetUser(email).ConfigureAwait(false);
+            //Users user = FirebaseHelper.getInstance().getCurrentUser();
+
+            if (user.isAdmin)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }*/
     }
 }

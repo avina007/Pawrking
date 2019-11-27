@@ -56,6 +56,8 @@ namespace PawrkingSample.ClassPages
             }
         }
 
+       
+
         //Inser a user
         public static async Task<bool> AddUser(string email, string password)
         {
@@ -65,7 +67,7 @@ namespace PawrkingSample.ClassPages
 
                 await firebase
                 .Child("Users")
-                .PostAsync(new Users() { Email = email, Password = password });
+                .PostAsync(new Users() { Email = email, Password = password, isAdmin = false });
                 return true;
             }
             catch (Exception e)
