@@ -38,5 +38,10 @@ namespace PawrkingSample.ClassPages
                 return null;
             }
         }
+
+        public static async Task<Reservation> GetReservation()
+        {
+
+        }
     }
 }

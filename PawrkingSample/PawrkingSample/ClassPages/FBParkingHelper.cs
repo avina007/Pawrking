@@ -39,7 +39,7 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public async Task<ParkingLot> GetLot(string lotname)
+        public static async Task<ParkingLot> GetLot(string lotname)
         {
             try
             {
