@@ -14,6 +14,11 @@ namespace PawrkingSample.ClassPages
 {
     public class FBReservationHelper
     {
+        string email2;
+        public FBParkingHelper(string email3)
+        {
+            email2 = email3;
+        }
         public static FirebaseClient firebase = new FirebaseClient("https://pawparking-f1065.firebaseio.com/");
 
         public static async Task<List<Reservation>> GetAllReservations()
@@ -41,7 +46,22 @@ namespace PawrkingSample.ClassPages
 
         public static async Task<Reservation> GetReservation()
         {
+            try
+            {
+                var allreservations = await GetAllReservations();
+                await firebase
+                    .Child("Reservations")
+                    .OnceAsync<Reservation>();
+                return allreservations.Where(a => a.Email == email).FirstOrDefault();
 
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
         }
+
+        public static async Task<bool> AddReservation(string lotname, string row, int col, int time)
     }
 }
