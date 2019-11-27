@@ -18,9 +18,10 @@ namespace PawrkingSample.Pages
     {
         //Student user;
         CreateParkingLotVM createParkingLotVM;
-        
+        //string email;
         public CreateParkingLot()
         {
+           //email = e;
             InitializeComponent();
             createParkingLotVM = new CreateParkingLotVM();
             LotNameEntry.Completed += LotNameEntry_Completed;

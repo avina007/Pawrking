@@ -34,11 +34,10 @@
 
 
         <Button
-                Text = "S"
+                Text = "Sign In"
                 x:Name="SigninButton"
                 BackgroundColor="White"
-                Command="{Binding LoginCommand}"
-                
+                Command="{Binding LoginCommand}" 
                  />
 
         <Button 
