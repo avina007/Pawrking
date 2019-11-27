@@ -7,45 +7,41 @@
              x:Class="PawrkingSample.Pages.HomePage"
              Title="Home Page"
              NavigationPage.HasBackButton="False">
-    <ContentPage.Content >
-        <StackLayout Spacing="10">
-            <Label/>
-            <Image 
+    <ContentPage.Content/>
+    <StackLayout Spacing="10">
+        <Label/>
+        <Image 
                     Source="PawParkingLog.png"
                      />
-            <Label/>
-            <Button
+        <Label/>
+        <Button
                     x:Name="SeeAllLotsButton"
                     Text="See All Lots"
-                    Command="{Binding SeeAllLotsClicked}"
+                    
                     BackgroundColor="White"
                     />
-            <Label/>
-            <Button
+        <Label/>
+        <Button
                     x:Name="SeeParkingReservationsButton"
                     Text="See Parking Reservations"
-                    Command="{Binding SeeParkingReservationsClicked}"
+                    
                     BackgroundColor="White"
                     />
-            <Label/>
-            <Button
+        <Label/>
+        <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"
-<<<<<<< HEAD
                     Clicked="CreateLot_Clicked"
-=======
-                    Command="{Binding CreateParkingLotClicked}"
->>>>>>> 09f0de991933fb4658937fad6cde7614e4ad7541
                     BackgroundColor="White"/>
-            <Label
+        <Label
                     x:Name="SpacingLabel"
                     />
-            <Button
+        <Button
                     x:Name="LogOutButton"
                     Text="Log Out"
-                    Command="{Binding LogoutCommand}"
+                    Clicked="LogOutButton_Clicked"
                     BackgroundColor="White"
                 />
-        </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
+
 </ContentPage>
