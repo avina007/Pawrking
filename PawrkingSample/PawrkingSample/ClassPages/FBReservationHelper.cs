@@ -14,8 +14,8 @@ namespace PawrkingSample.ClassPages
 {
     public class FBReservationHelper
     {
-        string email2;
-        public FBParkingHelper(string email3)
+         public string email2;
+        public FBReservationHelper(string email3)
         {
             email2 = email3;
         }
@@ -44,7 +44,7 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async Task<Reservation> GetReservation()
+        public static async Task<Reservation> GetReservation(string email)
         {
             try
             {
@@ -63,5 +63,22 @@ namespace PawrkingSample.ClassPages
         }
 
         public static async Task<bool> AddReservation(string lotname, string row, int col, int time)
+        {
+            try
+            {
+                await firebase
+                    .Child("Reservations")
+                    .PostAsync(new Reservation() { /*Construction of REservations attributes needed*/});
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }
+
+
     }
 }
