@@ -42,7 +42,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot(email));
+                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot());
                 });
             }
         }
