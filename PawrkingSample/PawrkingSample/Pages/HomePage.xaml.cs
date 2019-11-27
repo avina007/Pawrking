@@ -26,7 +26,7 @@ namespace PawrkingSample.Pages
             
             Users u = Task.Run( ()=> FirebaseHelper.GetUser(email)).Result;
             
-            if (u.isAdmin)
+            if (u.isAdmin=="true")
             {
                 CreateParkingLot_Button.IsVisible = true;
             }
@@ -44,19 +44,7 @@ namespace PawrkingSample.Pages
             
         }
         
-        /*private async void CreateLot_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CreateParkingLot());
-        }
-        private async void SeeAllLotsButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SeeAllLotsPage(user.Email));
-        }
-
-        private async void SeeParkingReservationsButton_Clicked(object sender, EventArgs e)
-        {//change when i make parking reservations history page
-            await Navigation.PushAsync(new ParkingReservationHistory(user.Email));
-        }*/
+       
         
         
     }

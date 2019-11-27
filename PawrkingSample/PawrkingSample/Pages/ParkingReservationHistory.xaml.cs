@@ -14,24 +14,20 @@ namespace PawrkingSample.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ParkingReservationHistory : ContentPage
     {
-        Student user;
+        string email;
         public ParkingReservationHistory()
         {
             InitializeComponent();
         }
-        public ParkingReservationHistory(string id)
+        public ParkingReservationHistory(string e)
         {
             InitializeComponent();
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
-            }
+            email = e;
         }
 
         public async void CancelButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage(user.Email));
+            await Navigation.PushAsync(new HomePage(email));
         }
     }
 }

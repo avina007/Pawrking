@@ -27,7 +27,8 @@ namespace PawrkingSample.ClassPages
                 new Users
                 {
                     Email = item.Object.Email,
-                    Password = item.Object.Password
+                    Password = item.Object.Password,
+                    isAdmin = item.Object.isAdmin
                 }).ToList();
                 return userlist;
             }
@@ -63,11 +64,9 @@ namespace PawrkingSample.ClassPages
         {
             try
             {
-
-
                 await firebase
                 .Child("Users")
-                .PostAsync(new Users() { Email = email, Password = password, isAdmin = false });
+                .PostAsync(new Users() { Email = email, Password = password, isAdmin = "false"});
                 return true;
             }
             catch (Exception e)
@@ -78,7 +77,7 @@ namespace PawrkingSample.ClassPages
         }
 
         //Update 
-        public static async Task<bool> UpdateUser(string email, string password)
+        public static async Task<bool> UpdateUser(string email, string password, string admin)
         {
             try
             {
@@ -90,7 +89,7 @@ namespace PawrkingSample.ClassPages
                 await firebase
                 .Child("Users")
                 .Child(toUpdateUser.Key)
-                .PutAsync(new Users() { Email = email, Password = password });
+                .PutAsync(new Users() { Email = email, Password = password, isAdmin = admin });
                 return true;
             }
             catch (Exception e)
@@ -105,8 +104,6 @@ namespace PawrkingSample.ClassPages
         {
             try
             {
-
-
                 var toDeletePerson = (await firebase
                 .Child("Users")
                 .OnceAsync<Users>()).Where(a => a.Object.Email == email).FirstOrDefault();
@@ -119,6 +116,5 @@ namespace PawrkingSample.ClassPages
                 return false;
             }
         }
-
     }
 }

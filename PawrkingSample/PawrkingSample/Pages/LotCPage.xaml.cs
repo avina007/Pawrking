@@ -14,21 +14,16 @@ namespace PawrkingSample.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LotCPage : ContentPage
     {
-        Student user;
+        string email;
         ParkingLot lot;
         public LotCPage()
         {
             InitializeComponent();
              
         }
-        public LotCPage(string id)
+        public LotCPage(string e)
         {
-            InitializeComponent();
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
-            }
+            email = e;
         }
 
         protected override void OnAppearing()
@@ -60,7 +55,7 @@ namespace PawrkingSample.Pages
 
         public async void CancelButton_Clicked(object sender, EventArgs e)
         {
-             await Navigation.PushAsync(new SeeAllLotsPage(user.Email));
+             await Navigation.PushAsync(new SeeAllLotsPage(email));
         }
 
     }

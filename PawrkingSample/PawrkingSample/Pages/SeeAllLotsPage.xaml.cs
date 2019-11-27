@@ -14,24 +14,20 @@ namespace PawrkingSample.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SeeAllLotsPage : ContentPage
     {
-        Student user;
+        string email;
         public SeeAllLotsPage()
         {
             InitializeComponent();
         }
-        public SeeAllLotsPage(string id)
+        public SeeAllLotsPage(string e)
         {
             InitializeComponent();
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", id);
-            }
+            email = e;
         }
         private async void LotCButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new LotCPage(user.Email));
+            await Navigation.PushAsync(new LotCPage(email));
         }
         private async void PS1Button_Clicked(object sender, EventArgs e)
         {
@@ -46,7 +42,7 @@ namespace PawrkingSample.Pages
         private async void CancelButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new HomePage(user.Email));
+            await Navigation.PushAsync(new HomePage(email));
         }
     }
 }

@@ -37,38 +37,6 @@ namespace PawrkingSample
         {
             PasswordEntry.Focus();
         }
-        /*
-        private async void CreateAccountClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Register());
-        }*/
-        /*
-        private async void SignIn_Clicked(object sender, EventArgs e)
-        {
-            Student user;
-            using (SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                conn.CreateTable<Student>();
-                user = conn.FindWithQuery<Student>("select * from Student where Id=?", EmailEntry.Text);
-            }
-            if (String.IsNullOrWhiteSpace(EmailEntry.Text) || String.IsNullOrWhiteSpace(PasswordEntry.Text))
-            {
-                DisplayAlert("Error", "Incorrect Username or Password", "Retry");
-            }
-            else if (user == null)
-            {
-                DisplayAlert("Error", "Username not Found please try again or create an account!", "Retry");
-            }
-            else if (user.Password != PasswordEntry.Text)
-            {
-                DisplayAlert("Error", "Incorrect Password", "Retry");
-            }
-            else if(user.Password == PasswordEntry.Text)
-            {
-                DisplayAlert("Welcome", user.Email , "ok");
-                await Navigation.PushAsync(new HomePage(user.Email));
-            }
-            
-        }*/
+       
     }
 }
