@@ -11,6 +11,7 @@ namespace PawrkingSample.ClassPages
     public class CreateParkingLotVM : INotifyPropertyChanged
     {
         private string lotname;
+ 
         public string LotName
         {
             get { return lotname; }
@@ -32,16 +33,18 @@ namespace PawrkingSample.ClassPages
                 PropertyChanged(this, new PropertyChangedEventArgs("Row"));
             }
         }
-
         private int col;
         public int Col
         {
+  
             get { return col; }
             set
             {
                 col = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Col"));
+
             }
+
         }
 
         public Command AddLotCommand

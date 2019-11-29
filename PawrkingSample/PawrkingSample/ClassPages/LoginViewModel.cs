@@ -64,7 +64,7 @@ namespace PawrkingSample.ClassPages
                 if (user != null)
                     if (Email == user.Email && Password == user.Password)
                     {
-                        await App.Current.MainPage.DisplayAlert("Login Success", user.isAdmin.ToString(), "Ok");
+                        await App.Current.MainPage.DisplayAlert("Login Success", "Welcome " + user.Email , "Ok");
                         //Navigate to Wellcom page after successfuly login
                         //pass user email to welcom page
                         await App.Current.MainPage.Navigation.PushAsync(new HomePage(Email));

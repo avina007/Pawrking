@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              mc:Ignorable="d"
              x:Class="PawrkingSample.Pages.LotCPage"
              NavigationPage.HasBackButton="False"
@@ -14,31 +14,43 @@
     <ContentPage.Content Spacing="10" >
         <StackLayout>
             <Label/>
-            <Image 
-                Source="PawParkingLog.png"
+            <forms:ChartView
+                x:Name="BusyChart"
+                HeightRequest="200"
+                
                 />
-            
-            <Label/>
-            
-
+            <ProgressBar
+                x:Name="full"
+                ProgressColor="Red"
+                />
             <Label 
                 Text="Available spots in Lot C"
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large"
                 />
-            
+            <ListView x:Name="openSpots">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell 
+                            Text="{Binding Row, StringFormat='Row: {0}'}"
+                            Detail="{Binding Col, StringFormat='Space: {0}'}"
+                            TextColor="Black"
+                            DetailColor="Black"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             <Label/>
             <Button
                     x:Name="ReserveButton"
                     Text="Reserve"
-                    Clicked="ReserveButton_Clicked"
+                    Command="{Binding ReservationClicked}"
                     BackgroundColor="White"
                     />
             <Label/>
             <Button
                     x:Name="CancelButton"
                     Text="Cancel"
-                    
+                    Command="{Binding CancelButtonClicked}"
                     BackgroundColor="White"
                 />
         </StackLayout>

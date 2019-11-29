@@ -1,11 +1,12 @@
 ﻿using PawrkingSample.Classes;
+using PawrkingSample.ClassPages;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Entry = Microcharts.Entry;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,27 +16,48 @@ namespace PawrkingSample.Pages
     public partial class LotCPage : ContentPage
     {
         string email;
-        
+        LotVM lotVM;
+        string LotName = "Lot C";
         public LotCPage(string e)
         {
-            //InitializeComponent();
+            InitializeComponent();
             email = e;
+            lotVM = new LotVM(email, LotName);
+            BindingContext = lotVM;
         }
+
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            
-            
-            
+            openSpots.ItemsSource = lotVM.Space;
+            int free = lotVM.GetFree;
+            int total = lotVM.GetAllSpotCount;
+            int busy = total - free;
+            full.Progress =(double) busy / total;
+            List<Entry> entries = new List<Entry>
+            {
+
+                new Entry((float)busy)
+                {
+                    Color = SkiaSharp.SKColor.Parse("#ff0000"),
+                    ValueLabel=Convert.ToString(busy),
+                    Label = "Busy",
+                },
+                new Entry((float)free)
+                {
+                    Color = SkiaSharp.SKColor.Parse("#008000"),
+                    ValueLabel=Convert.ToString(free),
+                    Label = "Open",
+                },
+            };
+            BusyChart.Chart = new Microcharts.DonutChart
+            {
+                Entries = entries,
+                LabelTextSize = 45,
+                HoleRadius = .7f,
+                Margin = 35,
+            };
         }
-
-        public async void ReserveButton_Clicked(object sender, EventArgs e)
-        {
-           // await Navigation.PushAsync(new MainPage());
-        }
-
-        
-
     }
 }

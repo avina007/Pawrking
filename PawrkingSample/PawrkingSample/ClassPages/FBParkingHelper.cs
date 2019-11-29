@@ -28,7 +28,7 @@ namespace PawrkingSample.ClassPages
                     LotName = item.Object.LotName,
                     Row = item.Object.Row,
                     Col = item.Object.Col,
-                    Open = true
+                    Open = item.Object.Open
                 }).ToList();
                 return lotlist;
             }
@@ -50,6 +50,42 @@ namespace PawrkingSample.ClassPages
                 return allLots.Where(a => a.LotName == lotname).FirstOrDefault();
             }
             catch(Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        public static async Task<List<ParkingLot>> GetLotOpen(string lotname)
+        {
+            try
+            {
+                var allLots = await GetAllParkingLots();
+                await firebase
+                    .Child("Lots")
+                    .OnceAsync<ParkingLot>();
+                var test = allLots.FindAll(a => a.LotName == lotname && a.Open == true).ToList();
+                return test;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
+        public static async Task<List<ParkingLot>> GetAllLotX(string lotname)
+        {
+            try
+            {
+                var allLots = await GetAllParkingLots();
+                await firebase
+                    .Child("Lots")
+                    .OnceAsync<ParkingLot>();
+                var test = allLots.FindAll(a => a.LotName == lotname).ToList();
+                return test;
+            }
+            catch (Exception e)
             {
                 Debug.WriteLine($"Error:{e}");
                 return null;

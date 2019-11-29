@@ -40,7 +40,7 @@
             <Button
                 Text="Cancel"
                 x:Name="CancelButton"
-                
+                Command="{Binding CancelButtonClicked}"
                 BackgroundColor="White"
                 />
             <Label/>

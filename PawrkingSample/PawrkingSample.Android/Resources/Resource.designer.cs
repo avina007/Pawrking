@@ -26,6 +26,7 @@ namespace PawrkingSample.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Microcharts.Droid.Resource.String.library_name = global::PawrkingSample.Droid.Resource.String.library_name;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar1 = global::PawrkingSample.Droid.Resource.Drawable.Avatar1;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar10 = global::PawrkingSample.Droid.Resource.Drawable.Avatar10;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.Avatar11 = global::PawrkingSample.Droid.Resource.Drawable.Avatar11;
