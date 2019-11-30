@@ -12,6 +12,8 @@ namespace PawrkingSample.ClassPages
     {
         string email;
         string LotName;
+        string row;
+        int col = -1;
         public LotVM(string email2, string lot)
         {
             email = email2;
@@ -24,10 +26,25 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    //App.Current.MainPage.Navigation.PushAsync(new ReservationPage(LotName,email));//to reservation page takes lot name and email
+                    if (row == "" || col == -1)
+                    {
+                        App.Current.MainPage.DisplayAlert("Error", "You must select a spot first in order to make a reservation.", "OK");
+                    }
+                    else
+                    {
+                        App.Current.MainPage.DisplayAlert("Success", email+", you are about to make a reservation to Row:"+row+" Space:"+col, "OK");
+                        //App.Current.MainPage.Navigation.PushAsync(new ReservationPage(LotName,row,col,email));//to reservation page takes lot name and email
+                    }
                 });
             }
         }
+        public void SpaceChosen(string r, int c)
+        {
+            row = r;
+            col = c;
+        }
+
+        
 
         public List<ParkingLot> Space
         {
@@ -39,6 +56,8 @@ namespace PawrkingSample.ClassPages
                 return p;
             }
         }
+
+
 
         public int GetFree
         {
@@ -76,6 +95,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
+                    
                     App.Current.MainPage.Navigation.PushAsync(new SeeAllLotsPage(email));
                 });
             }

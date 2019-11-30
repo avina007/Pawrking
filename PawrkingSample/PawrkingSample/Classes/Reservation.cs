@@ -8,6 +8,7 @@ namespace PawrkingSample.Classes
     {
         public ParkingLot Lot { set; get; }
         public string Email { set; get; }
-        public int Timer { set; get; }
+        public int LengthOfReservation { set; get; }
+        public DateTime start { set; get; }
     }
 }

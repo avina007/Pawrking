@@ -18,19 +18,20 @@ namespace PawrkingSample.Pages
         string email;
         LotVM lotVM;
         string LotName = "Lot C";
+        
         public LotCPage(string e)
         {
             InitializeComponent();
             email = e;
             lotVM = new LotVM(email, LotName);
             BindingContext = lotVM;
+            //string test = openSpots.SelectedItem.ToString();
         }
 
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            openSpots.ItemsSource = lotVM.Space;
             int free = lotVM.GetFree;
             int total = lotVM.GetAllSpotCount;
             int busy = total - free;
@@ -58,6 +59,14 @@ namespace PawrkingSample.Pages
                 HoleRadius = .7f,
                 Margin = 35,
             };
+        }
+
+
+
+        private void SpaceChocen(object sender, ItemTappedEventArgs e)
+        {
+            var details = e.Item as ParkingLot;
+            lotVM.SpaceChosen(details.Row, details.Col);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace PawrkingSample.ClassPages
                     {
                         Lot = item.Object.Lot,
                         Email = item.Object.Email,
-                        Timer = item.Object.Timer
+                        LengthOfReservation = item.Object.LengthOfReservation
 
                     }).ToList();
                 return reservationlist;
