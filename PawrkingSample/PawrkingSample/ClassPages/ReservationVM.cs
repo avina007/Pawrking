@@ -39,6 +39,15 @@ namespace PawrkingSample.ClassPages
             col = c;
         }
 
+        public string Spot
+        {
+            get
+            {
+                string s = "Rserving "+lotname + " Row: " + row + " Space: " + col;
+                return s;
+            }
+        }
+
         public Command ConfirmReservationCommand
         {
             get
@@ -62,11 +71,23 @@ namespace PawrkingSample.ClassPages
 
             if(reservation && reserved)
             {
+                await ReservationHistoryHelper.AddReservationToHistory(email, lotname, row, col, starttime, endtime);
                 await App.Current.MainPage.DisplayAlert("Reservation Confirmed", "", "Ok");
                 await App.Current.MainPage.Navigation.PushAsync(new ParkingReservationHistory(email));
             }
             else
                 await App.Current.MainPage.DisplayAlert("Reservation UNSUCCESFUL", "", "Ok");
+        }
+        
+        public Command CancelButtonClicked
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    App.Current.MainPage.Navigation.PopAsync();
+                });
+            }
         }
     }
 }

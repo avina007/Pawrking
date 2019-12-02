@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PawrkingSample.Pages.ReservationPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PawrkingSample.Pages.ReservationPage"
+             NavigationPage.HasBackButton="False"
+             Title="Reservation">
     <ContentPage.Content Spacing = "10">
         <StackLayout>
             <Label/>
             <Image
                 Source="PawParkingLog.png"
                 />
-
+            <Label Text="{Binding Spot}"
+                   TextColor="Black"/>
+            <Label Text="For How Long? (In Hours)"/>
             <Entry
                 x:Name="TimeLengthEntry"
                 Placeholder="# of Hours"
@@ -23,7 +29,7 @@
             <Button
                 Text="Cancel"
                 x:Name="CancelButton"
-                
+                Command="{Binding CancelButtonClicked}"
                 BackgroundColor="White"
                 />
             <Label/>
