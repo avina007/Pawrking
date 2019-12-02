@@ -31,7 +31,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    //App.Current.MainPage.Navigation.PushAsync(new PS1Page(email));
+                    App.Current.MainPage.Navigation.PushAsync(new PS1Page(email));
                 });
             }
         }
@@ -42,7 +42,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    //App.Current.MainPage.Navigation.PushAsync(new LotPPage());
+                    App.Current.MainPage.Navigation.PushAsync(new LotPPage(email));
                 });
             }
         }

@@ -5,10 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              mc:Ignorable="d"
-             x:Class="PawrkingSample.Pages.LotCPage"
+             x:Class="PawrkingSample.Pages.PS1Page"
              NavigationPage.HasBackButton="False"
-             Title="Lot C">
-
+             Title="PS1">
     <ContentPage.Content Spacing="10" >
         <StackLayout>
             <Label/>
@@ -17,7 +16,7 @@
                 HeightRequest="200"
                 />
             <Label 
-                Text="Available spots in Lot C"
+                Text="Available spots in Parking Structure 1"
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large"
                 TextColor="Black"
@@ -46,7 +45,7 @@
 
                             </Grid>
                         </ViewCell>
-                        
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
