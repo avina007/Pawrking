@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PawrkingSample.Pages.ReservationPage">
+    <ContentPage.Content Spacing = "10">
+        <StackLayout>
+            <Label/>
+            <Image
+                Source="PawParkingLog.png"
+                />
+
+            <Entry
+                x:Name="TimeLengthEntry"
+                Placeholder="# of Hours"
+                BackgroundColor="White"
+                Keyboard="Numeric"
+                Text="{Binding TimeLength}"
+                />
+            <Button
+                Text="Confirm"
+                x:Name="ConfirmReservationButton"
+                BackgroundColor="Green"
+                Command="{Binding ConfirmReservationCommand}"
+                />
+            <Button
+                Text="Cancel"
+                x:Name="CancelButton"
+                
+                BackgroundColor="White"
+                />
+            <Label/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
