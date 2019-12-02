@@ -33,7 +33,11 @@ namespace PawrkingSample.ClassPages
                     else
                     {
                         App.Current.MainPage.DisplayAlert("Success", email+", you are about to make a reservation to Row:"+row+" Space:"+col, "OK");
+<<<<<<< HEAD
+                        App.Current.MainPage.Navigation.PushAsync(new ReservationPage(email, LotName,row,col));//to reservation page takes lot name and email
+=======
                         //App.Current.MainPage.Navigation.PushAsync(new ReservationPage(LotName,row,col,email));//to reservation page
+>>>>>>> 559113cbd6988569a07842c9e2374c4a87c141ee
                     }
                 });
             }
