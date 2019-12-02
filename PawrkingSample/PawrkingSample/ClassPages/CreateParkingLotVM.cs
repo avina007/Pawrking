@@ -83,13 +83,16 @@ namespace PawrkingSample.ClassPages
             }
             else
             {
-                var lot = await FBParkingHelper.AddLot(LotName, Row, Col);
+                for (int i = Col; i < 16; i++)
+                {
+                    var lot = await FBParkingHelper.AddLot(LotName, Row, i);
+                }
 
-                if(lot)
+                /*if(lot)
                 {
                     await App.Current.MainPage.DisplayAlert("Lot Added Successfully", "", "Ok");
                     await App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot(email));
-                }
+                }*/
             }
         }
 

@@ -13,13 +13,13 @@ using Xamarin.Forms.Xaml;
 namespace PawrkingSample.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LotCPage : ContentPage
+    public partial class LotPPage : ContentPage
     {
         string email;
         LotVM lotVM;
-        string LotName = "Lot C";
-        
-        public LotCPage(string e)
+        string LotName = "Lot P";
+
+        public LotPPage(string e)
         {
             InitializeComponent();
             email = e;

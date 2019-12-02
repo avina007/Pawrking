@@ -27,7 +27,6 @@
                     Text="PS1"
                     Command="{Binding PS1ButtonClicked}"
                     BackgroundColor="White"
-                    IsVisible="False"
                     />
             <Label/>
             <Button
@@ -35,7 +34,6 @@
                     Text="Lot P"
                     Command="{Binding LotPButtonClicked}"
                     BackgroundColor="White"
-                    IsVisible="False"
                     />
             <Label/>
             <Button

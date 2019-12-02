@@ -34,7 +34,7 @@ namespace PawrkingSample.ClassPages
                     {
                         App.Current.MainPage.DisplayAlert("Success", email+", you are about to make a reservation to Row:"+row+" Space:"+col, "OK");
 
-                        App.Current.MainPage.Navigation.PushAsync(new ReservationPage(email, LotName,row,col));//to reservation page takes lot name and email
+                        App.Current.MainPage.Navigation.PushAsync(new ReservationPage(email, LotName,row,col));
 
 
                     }
