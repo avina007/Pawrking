@@ -24,11 +24,16 @@ namespace PawrkingSample.ClassPages
         {
             get
             {
-                return new Command(() =>
+                return new Command(async () =>
                 {
                     if (row == "" || col == -1)
                     {
                         App.Current.MainPage.DisplayAlert("Error", "You must select a spot first in order to make a reservation.", "OK");
+                    }
+                    else if(await FBReservationHelper.userInUse(email))
+                    {
+                        App.Current.MainPage.DisplayAlert("ERROR", "You already have an active Reservation", "OOPS");
+                        _ = App.Current.MainPage.Navigation.PushAsync(new ParkingReservationHistory(email));
                     }
                     else
                     {

@@ -118,7 +118,7 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async void RefreshReservations(DateTime refresh)
+        public static async Task<bool> RefreshReservations(DateTime refresh)
         {
             try
             {
@@ -129,11 +129,33 @@ namespace PawrkingSample.ClassPages
                     await DeleteRes(r[i].LotName, r[i].Row, r[i].Col);
                     await FBParkingHelper.UpdateLotFree(r[i].LotName, r[i].Row, r[i].Col);
                 }
+                return true;
             }
             catch (Exception e)
             {
                 Debug.WriteLine($"Error{e}");
-                
+                return false;
+            }
+        }
+
+        public static async Task<bool> userInUse(string email)
+        {
+            try
+            {
+                var checkUser = (await firebase
+                    .Child("Reservations")
+                    .OnceAsync<Reservation>()).Where(a => a.Object.Email == email).FirstOrDefault();
+                if (checkUser == null)
+                {
+                    return false;
+                }
+                else
+                    return true;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Error{e}");
+                return false;
             }
         }
 

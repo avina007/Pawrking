@@ -7,7 +7,9 @@
              mc:Ignorable="d"
              x:Class="PawrkingSample.Pages.LotCPage"
              NavigationPage.HasBackButton="False"
-             Title="Lot C">
+             Title="Lot C"
+
+             >
 
     <ContentPage.Content Spacing="10" >
         <StackLayout>
@@ -16,13 +18,19 @@
                 x:Name="BusyChart"
                 HeightRequest="200"
                 />
+            <ProgressBar
+                x:Name="full"
+                ProgressColor="Red"
+                />
             <Label 
                 Text="Available spots in Lot C"
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large"
-                TextColor="Black"
                 />
             <ListView ItemsSource="{Binding Space}"
+                      IsPullToRefreshEnabled="True"
+                      RefreshCommand="{Binding RefreshCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
                       ItemTapped="SpaceChocen">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -38,11 +46,9 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="1"
-                                       Text="{Binding Row,StringFormat='Row:{0}'}"
-                                       TextColor="Black"/>
+                                       Text="{Binding Row,StringFormat='Row:{0}'}"/>
                                 <Label Grid.Column="2"
-                                       Text="{Binding Col,StringFormat='Space:{0}'}"
-                                       TextColor="Black"/>
+                                       Text="{Binding Col,StringFormat='Space:{0}'}"/>
 
                             </Grid>
                         </ViewCell>
