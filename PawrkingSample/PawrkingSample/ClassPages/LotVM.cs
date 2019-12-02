@@ -54,7 +54,6 @@ namespace PawrkingSample.ClassPages
             get
             {
                 List<ParkingLot> p = new List<ParkingLot>();
-                List<string> s = new List<string>();
                 p = Task.Run(() => FBParkingHelper.GetLotOpen(LotName)).Result;
                 return p;
             }

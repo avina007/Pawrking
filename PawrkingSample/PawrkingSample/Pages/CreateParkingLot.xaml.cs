@@ -17,15 +17,15 @@ namespace PawrkingSample.Pages
     public partial class CreateParkingLot : ContentPage
     {
         CreateParkingLotVM createParkingLotVM;
-
-        public CreateParkingLot()
+        string email;
+        public CreateParkingLot(string e)
         {
+            email = e;
             InitializeComponent();
-            createParkingLotVM = new CreateParkingLotVM();
+            createParkingLotVM = new CreateParkingLotVM(email);
             LotNameEntry.Completed += LotNameEntry_Completed;
             RowEntry.Completed += RowEntry_Completed;
             BindingContext = createParkingLotVM;
-
         }
 
         public void LotNameEntry_Completed(object sender, EventArgs e)

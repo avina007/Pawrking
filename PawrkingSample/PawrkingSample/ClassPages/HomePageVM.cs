@@ -31,7 +31,7 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    //App.Current.MainPage.Navigation.PushAsync(new ReservationHistory(email));
+                    App.Current.MainPage.Navigation.PushAsync(new ParkingReservationHistory(email));
                 });
             }
         }
@@ -42,19 +42,22 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot());
+                    App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot(email));
                 });
             }
         }
+
+       
         public Command LogoutCommand
         {
             get
             {
                 return new Command(() =>
                 {
-                    App.Current.MainPage.Navigation.PopAsync();
+                    App.Current.MainPage.Navigation.PushAsync(new MainPage());
                 });
             }
+            
         }
     }
 }

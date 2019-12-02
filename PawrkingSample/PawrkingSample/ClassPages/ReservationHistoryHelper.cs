@@ -57,7 +57,7 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async Task<bool> AddLot(string email, string lotname, string row, int space, DateTime start, DateTime end)
+        public static async Task<bool> AddReservationToHistory(string email, string lotname, string row, int space, DateTime start, DateTime end)
         {
             try
             {

@@ -14,14 +14,52 @@
                     Source="PawParkingLog.png"
                      />
             <Label/>
-            <ListView>
-                
+            <Label 
+                Text="{Binding TopLabel}"
+                HorizontalOptions="CenterAndExpand"
+                TextColor="Black"
+                FontSize="Medium"/>
+            <ListView
+                ItemsSource="{Binding MyHistory}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5" RowSpacing="7" ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1"
+                                       Grid.Row="1"
+                                       Text="{Binding LotName}"/>
+                                <Label Grid.Column="2"
+                                       Grid.Row="1"
+                                       Text="{Binding Row,StringFormat='Row:{0}'}"/>
+                                <Label Grid.Column="3"
+                                       Grid.Row="1"
+                                       Text="{Binding Col,StringFormat='Space:{0}'}"/>
+                                <Label Grid.Column="1"
+                                    Grid.Row="2"
+                                       Text="{Binding Start, StringFormat='From: {0}'}"/>
+                                <Label Grid.Column="3"
+                                    Grid.Row="2"
+                                       Text="{Binding End, StringFormat='To: {0}'}"/>
+
+                            </Grid>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
             <Label/>
             <Button
                     x:Name="Cancel"
                     Text="Cancel"
-                    Clicked="CancelButton_Clicked"
+                    Command="{Binding CancelButtonClicked}"
                     BackgroundColor="White"
                     />
         </StackLayout>

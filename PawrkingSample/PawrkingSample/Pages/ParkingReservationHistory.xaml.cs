@@ -1,4 +1,5 @@
 ﻿using PawrkingSample.Classes;
+using PawrkingSample.ClassPages;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -15,19 +16,15 @@ namespace PawrkingSample.Pages
     public partial class ParkingReservationHistory : ContentPage
     {
         string email;
-        public ParkingReservationHistory()
-        {
-            InitializeComponent();
-        }
+        ReservationHistoyVM prhVM;
         public ParkingReservationHistory(string e)
         {
             InitializeComponent();
             email = e;
+            prhVM = new ReservationHistoyVM(email);
+            BindingContext = prhVM;
         }
 
-        public async void CancelButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new HomePage(email));
-        }
+       
     }
 }
