@@ -11,6 +11,12 @@ namespace PawrkingSample.ClassPages
     public class CreateParkingLotVM : INotifyPropertyChanged
     {
         private string lotname;
+        public string email;
+
+        public CreateParkingLotVM(string e)
+        {
+            email = e;
+        }
  
         public string LotName
         {
@@ -58,6 +64,17 @@ namespace PawrkingSample.ClassPages
             }
         }
 
+        public Command CancelButtonClicked
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    App.Current.MainPage.Navigation.PushAsync(new HomePage(email));
+                });
+            }
+        }
+
         private async void AddLot()
         {
             if(string.IsNullOrEmpty(LotName) || string.IsNullOrEmpty(Row) || string.IsNullOrEmpty(Col.ToString()))
@@ -71,7 +88,7 @@ namespace PawrkingSample.ClassPages
                 if(lot)
                 {
                     await App.Current.MainPage.DisplayAlert("Lot Added Successfully", "", "Ok");
-                    await App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot());
+                    await App.Current.MainPage.Navigation.PushAsync(new CreateParkingLot(email));
                 }
             }
         }
