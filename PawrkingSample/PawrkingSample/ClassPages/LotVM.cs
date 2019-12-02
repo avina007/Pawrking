@@ -33,7 +33,9 @@ namespace PawrkingSample.ClassPages
                     else
                     {
                         App.Current.MainPage.DisplayAlert("Success", email+", you are about to make a reservation to Row:"+row+" Space:"+col, "OK");
+
                         App.Current.MainPage.Navigation.PushAsync(new ReservationPage(email, LotName,row,col));
+
 
                     }
                 });
@@ -79,15 +81,7 @@ namespace PawrkingSample.ClassPages
                 return p.Count;
             }
         }
-        public List<string> Cat()
-        {
-            List<string> s = new List<string>();
-            for(int i = 0; i< 5; i++){
-            s.Add("cat");
-            }
-            return s;
-
-        }
+       
         
         public Command CancelButtonClicked
         {
