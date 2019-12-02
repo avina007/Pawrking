@@ -25,7 +25,6 @@ namespace PawrkingSample.Pages
             email = e;
             lotVM = new LotVM(email, LotName);
             BindingContext = lotVM;
-            //string test = openSpots.SelectedItem.ToString();
         }
 
 
@@ -38,7 +37,6 @@ namespace PawrkingSample.Pages
             full.Progress =(double) busy / total;
             List<Entry> entries = new List<Entry>
             {
-
                 new Entry((float)busy)
                 {
                     Color = SkiaSharp.SKColor.Parse("#ff0000"),
@@ -60,8 +58,6 @@ namespace PawrkingSample.Pages
                 Margin = 35,
             };
         }
-
-
 
         private void SpaceChocen(object sender, ItemTappedEventArgs e)
         {
