@@ -10,9 +10,11 @@
             <Image
                 Source="PawParkingLog.png"
                 />
+            <Label/>
             <Label Text="{Binding Spot}"
                    TextColor="Black"/>
-            <Label Text="For How Long? (In Hours)"/>
+            <Label Text="For How Long? (In Hours)"
+                   TextColor="Black"/>
             <Entry
                 x:Name="TimeLengthEntry"
                 Placeholder="# of Hours"
