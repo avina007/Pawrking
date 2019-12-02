@@ -30,10 +30,13 @@ namespace PawrkingSample.ClassPages
                     .OnceAsync<Reservation>()).Select(item =>
                     new Reservation
                     {
-                        Lot = item.Object.Lot,
+                        LotName = item.Object.LotName,
+                        Row = item.Object.Row,
+                        Col = item.Object.Col,
+                        
                         Email = item.Object.Email,
-                        LengthOfReservation = item.Object.LengthOfReservation
-
+                        LengthOfReservation = item.Object.LengthOfReservation,
+                        StartTime = item.Object.StartTime
                     }).ToList();
                 return reservationlist;
             }
@@ -62,13 +65,13 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async Task<bool> AddReservation(string lotname, string row, int col, int time)
+        public static async Task<bool> AddReservation(string lotname, string row, int col, string email, int timelength, DateTime starttime)
         {
             try
             {
                 await firebase
                     .Child("Reservations")
-                    .PostAsync(new Reservation() { /*Construction of REservations attributes needed*/});
+                    .PostAsync(new Reservation() { LotName = lotname, Row = row, Col = col, Email = email, LengthOfReservation = timelength, StartTime = starttime});
                 return true;
 
             }
@@ -78,6 +81,29 @@ namespace PawrkingSample.ClassPages
                 return false;
             }
         }
+
+        /*
+        public static async Task<bool> UpdateReservation(string lotname, string row, int col, int time, string email)
+        {
+            try
+            {
+
+
+                var toUpdateUser = (await firebase
+                .Child("Users")
+                .OnceAsync<Users>()).Where(a => a.Object.Email == email && a.Object).FirstOrDefault();
+                await firebase
+                .Child("Users")
+                .Child(toUpdateUser.Key)
+                .PutAsync(new Users() { Email = email,  });
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return false;
+            }
+        }*/
 
 
     }
