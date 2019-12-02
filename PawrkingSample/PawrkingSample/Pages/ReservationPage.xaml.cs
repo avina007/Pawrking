@@ -23,6 +23,7 @@ namespace PawrkingSample.Pages
         int col;
         int timelength;
         DateTime starttime;
+        DateTime endtime;
 
         ReservationVM reservationVM;
 

@@ -35,8 +35,9 @@ namespace PawrkingSample.ClassPages
                         Col = item.Object.Col,
                         
                         Email = item.Object.Email,
-                        LengthOfReservation = item.Object.LengthOfReservation,
-                        StartTime = item.Object.StartTime
+                        TimeLength = item.Object.TimeLength,
+                        StartTime = item.Object.StartTime,
+                        EndTime = item.Object.EndTime
                     }).ToList();
                 return reservationlist;
             }
@@ -65,13 +66,13 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async Task<bool> AddReservation(string lotname, string row, int col, string email, int timelength, DateTime starttime)
+        public static async Task<bool> AddReservation(string lotname, string row, int col, string email, int timelength, DateTime starttime, DateTime endtime)
         {
             try
             {
                 await firebase
                     .Child("Reservations")
-                    .PostAsync(new Reservation() { LotName = lotname, Row = row, Col = col, Email = email, LengthOfReservation = timelength, StartTime = starttime});
+                    .PostAsync(new Reservation() { LotName = lotname, Row = row, Col = col, Email = email, TimeLength = timelength, StartTime = starttime, EndTime = endtime});
                 return true;
 
             }

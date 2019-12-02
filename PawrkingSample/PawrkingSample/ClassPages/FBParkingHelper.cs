@@ -116,7 +116,7 @@ namespace PawrkingSample.ClassPages
                 .Child("Lots")
                 .OnceAsync<ParkingLot>()).Where(a => a.Object.LotName == lotname && a.Object.Row == row && a.Object.Col == col).FirstOrDefault();
                 await firebase
-                .Child("Users")
+                .Child("Lots")
                 .Child(toUpdateLot.Key)
                 .PutAsync(new ParkingLot() { LotName = lotname, Row = row, Col = col, Open = false });
                 return true;
@@ -136,7 +136,7 @@ namespace PawrkingSample.ClassPages
                 .Child("Lots")
                 .OnceAsync<ParkingLot>()).Where(a => a.Object.LotName == lotname && a.Object.Row == row && a.Object.Col == col).FirstOrDefault();
                 await firebase
-                .Child("Users")
+                .Child("Lots")
                 .Child(toUpdateLot.Key)
                 .PutAsync(new ParkingLot() { LotName = lotname, Row = row, Col = col, Open = true });
                 return true;

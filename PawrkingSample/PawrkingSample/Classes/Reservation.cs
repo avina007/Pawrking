@@ -13,5 +13,6 @@ namespace PawrkingSample.Classes
         public string Email { set; get; }
         public int TimeLength { set; get; }
         public DateTime StartTime { set; get; }
+        public DateTime EndTime { set; get; }
     }
 }
