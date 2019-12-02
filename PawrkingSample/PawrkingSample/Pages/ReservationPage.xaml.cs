@@ -23,7 +23,8 @@ namespace PawrkingSample.Pages
         int col;
         int timelength;
         DateTime starttime;
-        //VIEW MODEL CONSTRUCTOR
+
+        ReservationVM reservationVM;
 
         public ReservationPage(string e, string lname, string r, int c)
         {
@@ -33,7 +34,9 @@ namespace PawrkingSample.Pages
             row = r;
             col = c;
             //VIEW MODEL Value Transfer
+            reservationVM = new ReservationVM(lotname, row, col, email);
             //BINDINGCONTEXT HERE
+            BindingContext = reservationVM;
         }
 
         protected override void OnAppearing()
