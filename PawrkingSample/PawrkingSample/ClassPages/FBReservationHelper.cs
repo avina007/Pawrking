@@ -66,6 +66,24 @@ namespace PawrkingSample.ClassPages
             }
         }
 
+        public static async Task<List<Reservation>> GetExpiredReservation(DateTime refresh)
+        {
+            try
+            {
+                var allreservations = await GetAllReservations();
+                await firebase
+                    .Child("Reservations")
+                    .OnceAsync<Reservation>();
+                return allreservations.Where(a => a.EndTime <= refresh).ToList();
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
         public static async Task<bool> AddReservation(string lotname, string row, int col, string email, int timelength, DateTime starttime, DateTime endtime)
         {
             try
@@ -80,6 +98,42 @@ namespace PawrkingSample.ClassPages
             {
                 Debug.WriteLine($"Error:{e}");
                 return false;
+            }
+        }
+
+        public static async Task<bool> DeleteRes(string lotname, string row, int col)
+        {
+            try
+            {
+                var toDeleteRes = (await firebase
+                    .Child("Reservations")
+                    .OnceAsync<Reservation>()).Where(a => a.Object.LotName == lotname && a.Object.Row == row && a.Object.Col == col).FirstOrDefault();
+                await firebase.Child("Reservations").Child(toDeleteRes.Key).DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error{e}");
+                return false;
+            }
+        }
+
+        public static async void RefreshReservations(DateTime refresh)
+        {
+            try
+            {
+                List<Reservation> r = new List<Reservation>();
+                r = Task.Run(() => GetExpiredReservation(refresh)).Result;
+                for (int i = 0; i < r.Count; i++)
+                {
+                    await DeleteRes(r[i].LotName, r[i].Row, r[i].Col);
+                    await FBParkingHelper.UpdateLotFree(r[i].LotName, r[i].Row, r[i].Col);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error{e}");
+                
             }
         }
 

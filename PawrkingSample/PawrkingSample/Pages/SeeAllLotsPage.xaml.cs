@@ -21,6 +21,7 @@ namespace PawrkingSample.Pages
         public SeeAllLotsPage(string e)
         {
             InitializeComponent();
+            LotVM.Refresh();
             email = e;
             seeAllLotsVM = new SeeAllLotsVM(email);
             BindingContext = seeAllLotsVM;

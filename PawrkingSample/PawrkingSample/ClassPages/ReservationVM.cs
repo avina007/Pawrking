@@ -43,7 +43,7 @@ namespace PawrkingSample.ClassPages
         {
             get
             {
-                string s = "Rserving "+lotname + " Row: " + row + " Space: " + col;
+                string s = "Do you want to reserve "+lotname + " Row: " + row + " Space: " + col;
                 return s;
             }
         }

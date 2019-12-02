@@ -11,10 +11,11 @@
                 Source="PawParkingLog.png"
                 />
             <Label/>
+            <Label Text="For how long (In Hours)"
+                   TextColor="Black"/>
             <Label Text="{Binding Spot}"
                    TextColor="Black"/>
-            <Label Text="For How Long? (In Hours)"
-                   TextColor="Black"/>
+            
             <Entry
                 x:Name="TimeLengthEntry"
                 Placeholder="# of Hours"
@@ -25,7 +26,7 @@
             <Button
                 Text="Confirm"
                 x:Name="ConfirmReservationButton"
-                BackgroundColor="Green"
+                BackgroundColor="White"
                 Command="{Binding ConfirmReservationCommand}"
                 />
             <Button

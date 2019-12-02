@@ -31,6 +31,7 @@ namespace PawrkingSample.Pages
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            
             int free = lotVM.GetFree;
             int total = lotVM.GetAllSpotCount;
             int busy = total - free;

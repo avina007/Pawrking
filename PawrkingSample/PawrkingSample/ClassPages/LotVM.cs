@@ -33,10 +33,7 @@ namespace PawrkingSample.ClassPages
                     else
                     {
                         App.Current.MainPage.DisplayAlert("Success", email+", you are about to make a reservation to Row:"+row+" Space:"+col, "OK");
-
                         App.Current.MainPage.Navigation.PushAsync(new ReservationPage(email, LotName,row,col));
-
-
                     }
                 });
             }
@@ -59,7 +56,11 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-
+        public static void Refresh()
+        {
+            DateTime refresh = DateTime.Now;
+            FBReservationHelper.RefreshReservations(refresh);
+        }
 
         public int GetFree
         {
