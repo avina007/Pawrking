@@ -56,6 +56,24 @@ namespace PawrkingSample.ClassPages
             }
         }
 
+        public static async Task<List<ParkingLot>> GetAllLotOpen()
+        {
+            try
+            {
+                var allLots = await GetAllParkingLots();
+                await firebase
+                    .Child("Lots")
+                    .OnceAsync<ParkingLot>();
+                var test = allLots.FindAll(a => a.Open == true).ToList();
+                return test;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return null;
+            }
+        }
+
         public static async Task<List<ParkingLot>> GetLotOpen(string lotname)
         {
             try

@@ -46,6 +46,16 @@ namespace PawrkingSample.ClassPages
                 });
             }
         }
+        public Command SearchByTimeClicked
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    App.Current.MainPage.Navigation.PushAsync(new SearchByTimePage(email));
+                });
+            }
+        }
 
        
         public Command LogoutCommand

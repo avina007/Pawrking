@@ -41,4 +41,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\SearchByTimePage.xaml.cs">
+      <DependentUpon>SearchByTimePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\ViewOpenSpacesPage.xaml.cs">
+      <DependentUpon>ViewOpenSpacesPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
