@@ -11,7 +11,7 @@ namespace PawrkingSample.Classes
         public int Col { set; get; }
         
         public string Email { set; get; }
-        public int TimeLength { set; get; }
+        public decimal TimeLength { set; get; }
         public DateTime StartTime { set; get; }
         public DateTime EndTime { set; get; }
     }

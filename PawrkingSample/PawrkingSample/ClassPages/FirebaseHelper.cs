@@ -64,10 +64,18 @@ namespace PawrkingSample.ClassPages
         {
             try
             {
-                await firebase
-                .Child("Users")
-                .PostAsync(new Users() { Email = email, Password = password, isAdmin = "false"});
-                return true;
+                var userExists = (await firebase
+                    .Child("Users")
+                    .OnceAsync<Users>()).Where(a => a.Object.Email == email).FirstOrDefault();
+                if (userExists != null)
+                    return false;
+                else
+                {
+                    await firebase
+                    .Child("Users")
+                    .PostAsync(new Users() { Email = email, Password = password, isAdmin = "false" });
+                    return true;
+                }
             }
             catch (Exception e)
             {

@@ -84,7 +84,7 @@ namespace PawrkingSample.ClassPages
             }
         }
 
-        public static async Task<bool> AddReservation(string lotname, string row, int col, string email, int timelength, DateTime starttime, DateTime endtime)
+        public static async Task<bool> AddReservation(string lotname, string row, int col, string email, decimal timelength, DateTime starttime, DateTime endtime)
         {
             try
             {

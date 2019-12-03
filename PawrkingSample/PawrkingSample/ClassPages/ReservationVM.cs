@@ -19,8 +19,8 @@ namespace PawrkingSample.ClassPages
         DateTime starttime;
         DateTime endtime;
 
-        private int timelength;
-        public int TimeLength
+        private decimal timelength;
+        public decimal TimeLength
         {
             get { return timelength; }
             set
@@ -54,10 +54,10 @@ namespace PawrkingSample.ClassPages
             {
                 return new Command(() =>
                 {
-                    if (TimeLength >= 0 && TimeLength <= 12)
+                    if (TimeLength > 0 && TimeLength <= 12)
                         ConfirmReservation();
                     else
-                        App.Current.MainPage.DisplayAlert("", "Time must be between 1-12\nSorry", "OK");
+                        App.Current.MainPage.DisplayAlert("", "Time must be between 0-12\nSorry", "OK");
                 });
             }
         }
@@ -65,7 +65,8 @@ namespace PawrkingSample.ClassPages
         private async void ConfirmReservation()
         {
             starttime = DateTime.Now;
-            endtime = starttime.AddHours(TimeLength);
+            TimeLength = TimeLength * 60;
+            endtime = starttime.AddMinutes((double)TimeLength);
             var reservation = await FBReservationHelper.AddReservation(lotname, row, col, email, TimeLength, starttime, endtime);
             var reserved = await FBParkingHelper.UpdateLotTaken(lotname, row, col);
 
