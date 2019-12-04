@@ -18,14 +18,12 @@
                 x:Name="BusyChart"
                 HeightRequest="200"
                 />
-            <ProgressBar
-                x:Name="full"
-                ProgressColor="Red"
-                />
+            
             <Label 
                 Text="Available spots in Lot C"
                 HorizontalOptions="CenterAndExpand"
                 FontSize="Large"
+                TextColor="Black"
                 />
             <ListView ItemsSource="{Binding Space}"
                       IsPullToRefreshEnabled="True"
@@ -46,8 +44,10 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="1"
+                                       TextColor="Black"
                                        Text="{Binding Row,StringFormat='Row:{0}'}"/>
                                 <Label Grid.Column="2"
+                                       TextColor="Black"
                                        Text="{Binding Col,StringFormat='Space:{0}'}"/>
 
                             </Grid>

@@ -20,14 +20,14 @@
                     Command="{Binding SeeAllLotsClicked}"
                     BackgroundColor="White"
                     />
-        <Label/>
+
         <Button
                     x:Name="SearchByTimeButton"
                     Text="Search By Time"
                     Command="{Binding SearchByTimeClicked}"
                     BackgroundColor="White"
             />
-        <Label/>
+
 
         <Button
                     x:Name="SeeParkingReservationsButton"
@@ -35,7 +35,7 @@
                     Command="{Binding SeeParkingReservationsClicked}"
                     BackgroundColor="White"
                     />
-        <Label/>
+
         <Button
                     x:Name="CreateParkingLot_Button"
                     Text="Create Parking Lot"

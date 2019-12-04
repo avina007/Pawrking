@@ -37,19 +37,24 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="1"
                                        Grid.Row="1"
-                                       Text="{Binding LotName}"/>
+                                       Text="{Binding LotName}"
+                                       TextColor="Black"/>
                                 <Label Grid.Column="2"
                                        Grid.Row="1"
-                                       Text="{Binding Row,StringFormat='Row:{0}'}"/>
+                                       Text="{Binding Row,StringFormat='Row:{0}'}"
+                                       TextColor="Black"/>
                                 <Label Grid.Column="3"
                                        Grid.Row="1"
-                                       Text="{Binding Space,StringFormat='Space:{0}'}"/>
+                                       Text="{Binding Space,StringFormat='Space:{0}'}"
+                                       TextColor="Black"/>
                                 <Label Grid.Column="1"
                                     Grid.Row="2"
-                                       Text="{Binding Start, StringFormat='From: {0}'}"/>
+                                       Text="{Binding Start, StringFormat='From: {0}'}"
+                                       TextColor="Black"/>
                                 <Label Grid.Column="3"
                                     Grid.Row="2"
-                                       Text="{Binding End, StringFormat='To: {0}'}"/>
+                                       Text="{Binding End, StringFormat='To: {0}'}"
+                                       TextColor="Black"/>
 
                             </Grid>
                         </ViewCell>
